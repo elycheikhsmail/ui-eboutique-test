@@ -32,6 +32,7 @@ export const handler: Handlers<IArticlesItemAndPageNumber | null> = {
       };
       return ctx.render(toRender);
     } catch (error) {
+      console.log(error)
       return ctx.render(null);
     }
   },
