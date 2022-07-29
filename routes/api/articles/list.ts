@@ -10,6 +10,8 @@ export const handler = (req: Request, _ctx: HandlerContext): Response => {
   const pageN = parseInt(url.searchParams.get("_page") || "1");
   console.log({ pageN });
   const skip = pageN * 5;
+  const articles = articleStore.articles.slice(skip, skip + 5)
+  console.log(articles)
 
-  return Response.json(articleStore.articles.slice(skip, skip + 5));
+  return Response.json(articles);
 };

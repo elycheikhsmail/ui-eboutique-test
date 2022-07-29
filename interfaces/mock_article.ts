@@ -23,7 +23,7 @@ export class ArticlStore {
   crateOneArticle(article: IArticle) {
     this.id++;
     this.articles.push({ ...article, id: this.id });
-    console.log("article created");
+    //console.log("article created");
   }
 
   crealeAllMockedArticles() {
