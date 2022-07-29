@@ -1,0 +1,18 @@
+in v2
+projet idependant pour:
+ tester la connexion a une base des donner pg using deno-ts 
+ creer les tables users articles not linked
+ class UserService
+ add data mocked data
+ read data 
+ class ArticleService
+ add data 
+ read data 
+
+in v3 
+mixt v1 et v2
+ 
+
+in v4 review auth
+
+then deploy
