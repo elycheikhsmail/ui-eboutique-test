@@ -1,3 +1,20 @@
+export interface IArticleIndb {
+  id: number;
+  categorie: number;
+  subcategorie: number;
+  lieu: number;
+  desc: string;
+  prix: number;
+  dateAdd: string;
+}
+export interface IArticle {
+  categorie: number;
+  subcategorie: number;
+  lieu: number;
+  desc: string;
+  prix: number;
+  dateAdd: string;
+}
 export interface IArticleItem {
   desc: string;
   prix: number;
@@ -13,6 +30,6 @@ export interface IArticleItemInDb {
   dateAdd: string;
 }
 export interface IArticlesItemAndPageNumber {
-  articles: IArticleItemInDb[];
+  articles: IArticleIndb[];
   pageN: number;
 }

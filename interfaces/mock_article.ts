@@ -1,20 +1,5 @@
-interface IArticleIndb {
-  id: number;
-  categorie: number;
-  subcategorie: number;
-  lieu: number;
-  desc: string;
-  prix: number;
-  dateAdd: string;
-}
-interface IArticle {
-  categorie: number;
-  subcategorie: number;
-  lieu: number;
-  desc: string;
-  prix: number;
-  dateAdd: string;
-}
+import { IArticle, IArticleIndb  } from "./mod.ts";
+
 
 export class ArticlStore {
   articles: IArticleIndb[] = [];

@@ -12,29 +12,29 @@ import {
 import { Handlers, PageProps } from "$fresh/server.ts";
 import NotFound from "../component/notFound.tsx";
 import PaginationCompo from "../islands/pagination.tsx";
+import { ArticlStore } from "../interfaces/mock_article.ts";
+
 
 export const handler: Handlers<IArticlesItemAndPageNumber | null> = {
-  async GET(req, ctx) {
+   GET(req, ctx) {
     const url = new URL(req.url);
     const pageN = parseInt(url.searchParams.get("_page") || "1");
+ 
+    console.log({ pageN });
+    const skip = pageN * 5;
+    const articleStore = new ArticlStore();
+    articleStore.InitArticles();
+    const articles = articleStore.articles.slice(skip, skip + 5)
+    console.log(articles)
      
-    try {
-      const resp = await fetch(
-        `${url.protocol}//${url.host}/api/articles/list?_page=${pageN}`,
-      );
-      if (resp.status === 404) {
-        return ctx.render(null);
-      }
-      const articles: IArticleItemInDb[] = await resp.json();
+ 
+      //const articles: IArticleItemInDb[] = await resp.json();
       const toRender: IArticlesItemAndPageNumber = {
         articles,
         pageN,
       };
       return ctx.render(toRender);
-    } catch (error) {
-      console.log(error)
-      return ctx.render(null);
-    }
+    
   },
 };
 export default function Home(

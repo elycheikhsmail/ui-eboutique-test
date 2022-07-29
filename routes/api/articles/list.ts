@@ -12,6 +12,7 @@ export const handler = (req: Request, _ctx: HandlerContext): Response => {
   const skip = pageN * 5;
   const articles = articleStore.articles.slice(skip, skip + 5)
   console.log(articles)
+  const resp = Response.json(articles);
 
-  return Response.json(articles);
+  return  resp
 };

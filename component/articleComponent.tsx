@@ -1,8 +1,8 @@
 /** @jsx h */
 import { h } from "preact";
 import { Fragment } from "preact";
-import { IArticleItem, IArticleItemInDb } from "../interfaces/mod.ts";
-export default function ArticleComponent(prop: IArticleItemInDb) {
+import { IArticleIndb, IArticleItem, IArticleItemInDb } from "../interfaces/mod.ts";
+export default function ArticleComponent(prop: IArticleIndb) {
   const detailsUrl = `details/${prop.id}`;
   return (
     <div class="card-container">
