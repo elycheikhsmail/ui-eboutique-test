@@ -17,10 +17,10 @@ export const handler: Handlers<IArticlesItemAndPageNumber | null> = {
   async GET(req, ctx) {
     const url = new URL(req.url);
     const pageN = parseInt(url.searchParams.get("_page") || "1");
-
+     
     try {
       const resp = await fetch(
-        `http://localhost:3000/api/articles/list?_page=${pageN}`,
+        `${url.protocol}//${url.host}/api/articles/list?_page=${pageN}`,
       );
       if (resp.status === 404) {
         return ctx.render(null);
